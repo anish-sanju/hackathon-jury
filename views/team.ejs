@@ -1,0 +1,110 @@
+<div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+  <h1 class="text-4xl font-bold mb-4"><%= team.name %></h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <div class="bg-white rounded-md shadow-md px-4 py-4 mb-4">
+        <p class="text-gray-600">
+          <span class="font-bold">ID:</span> <%= team.id %>
+        </p>
+        <p class="text-gray-600">
+          <span class="font-bold">Theme:</span> <%= team.theme %>
+        </p>
+      </div>
+      <div class="bg-white rounded-md shadow-md px-4 py-4">
+        <h2 class="text-lg font-bold mb-4">Members</h2>
+        <% if (team.members.length > 0) { %> <% team.members.forEach(member => {
+        %>
+        <p class="text-gray-600"><%= member.name %></p>
+        <% }) %> <% } else { %>
+        <p class="text-gray-600">No members found.</p>
+        <% } %>
+      </div>
+    </div>
+    <div>
+      <form
+        action="/update"
+        method="PUT"
+        class="bg-white rounded-md shadow-md px-4 py-4"
+      >
+        <h2 class="text-lg font-bold mb-4">Score Dragger</h2>
+        <!-- add input fields for score dragger -->
+        <div class="mb-4">
+          <label for="score1">Score 1:</label>
+          <input
+            type="range"
+            id="score1"
+            name="score1"
+            min="0"
+            max="10"
+            value="5"
+            class="w-full"
+          />
+          <span class="score-display">5</span>
+        </div>
+        <div class="mb-4">
+          <label for="score2">Score 2:</label>
+          <input
+            type="range"
+            id="score2"
+            name="score2"
+            min="0"
+            max="10"
+            value="5"
+            class="w-full"
+          />
+          <span class="score-display">5</span>
+        </div>
+        <div class="mb-4">
+          <label for="score3">Score 3:</label>
+          <input
+            type="range"
+            id="score3"
+            name="score3"
+            min="0"
+            max="10"
+            value="5"
+            class="w-full"
+          />
+          <span class="score-display">5</span>
+        </div>
+        <div class="mb-4">
+          <label for="score4">Score 4:</label>
+          <input
+            type="range"
+            id="score4"
+            name="score4"
+            min="0"
+            max="10"
+            value="5"
+            class="w-full"
+          />
+          <span class="score-display">5</span>
+        </div>
+        <div class="mb-4">
+          <label for="notes">Notes:</label>
+          <textarea id="notes" name="notes" rows="8" class="w-full"></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  const scoreInputs = document.querySelectorAll('input[type="range"]');
+  const scoreDisplays = document.querySelectorAll(".score-display");
+
+  scoreInputs.forEach((input, index) => {
+    const display = scoreDisplays[index];
+
+    display.innerText = input.value;
+
+    input.addEventListener("input", () => {
+      display.innerText = input.value;
+    });
+  });
+</script>

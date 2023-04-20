@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack To Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <div class="flex flex-col h-screen">
+      <header><%- include('./partials/navbar') %></header>
+
+      <main class="flex-1 bg-zinc-900 px-6 py-10"><%- body %></main>
+
+      <footer><%- include('./partials/footer') %></footer>
+    </div>
+  </body>
+</html>

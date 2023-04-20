@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Member {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  team   Team?   @relation(fields: [teamId], references: [id])
+  teamId String? @db.ObjectId
+}
+
+model Team {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  teamid  String   @unique
+  name    String
+  theme   String
+  members Member[]
+  Result  Result?
+}
+
+model Result {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  team   Team?   @relation(fields: [teamId], references: [id])
+  teamId String? @unique @db.ObjectId
+  slot1  Int
+  slot2  Int
+  slot3  Int
+  slot4  Int
+  total  Int
+  notes  String?
+}

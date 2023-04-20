@@ -1,0 +1,94 @@
+<div class="max-w-lg mx-auto py-12">
+  <h1 class="text-3xl font-bold text-gray-100 mb-8">Create a Team</h1>
+  <form id="add" action="/team" method="POST">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-100 font-bold mb-2"
+          >Team Name:</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="member1" class="block text-gray-100 font-bold mb-2"
+          >Member 1:</label
+        >
+        <input
+          type="text"
+          id="member1"
+          name="member1"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="member2" class="block text-gray-100 font-bold mb-2"
+          >Member 2:</label
+        >
+        <input
+          type="text"
+          id="member2"
+          name="member2"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="member3" class="block text-gray-100 font-bold mb-2"
+          >Member 3:</label
+        >
+        <input
+          type="text"
+          id="member3"
+          name="member3"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="mb-4 col-span-full">
+        <label for="theme" class="block text-gray-100 font-bold mb-2"
+          >Theme:</label
+        >
+        <select
+          id="theme"
+          name="theme"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+          required
+        >
+          <option value="Energy and Sustainability">
+            Energy and Sustainability
+          </option>
+          <option value="Social Innovation">Social Innovation</option>
+          <option value="Finance">Finance</option>
+          <option value="Healthcare">Healthcare</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-8">
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Create Team
+      </button>
+    </div>
+  </form>
+  <% if (data && data.submissionSuccess) { %>
+  <script>
+    setTimeout(function () {
+      document.getElementById("success-toast").style.display = "none";
+    }, 3000);
+  </script>
+  <div class="fixed top-30 right-0 mb-4 mr-4">
+    <div
+      id="success-toast"
+      class="bg-green-500 text-white py-2 px-4 rounded-lg shadow-md"
+    >
+      Team created successfully! with Team id: <%= data.team.teamid %>.
+    </div>
+  </div>
+  <% } %>
+</div>

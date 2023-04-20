@@ -1,0 +1,61 @@
+<nav class="bg-zinc-800 py-4">
+  <div class="mx-auto px-4">
+    <div class="flex justify-between">
+      <div class="flex space-x-4 items-center">
+        <a href="/" class="text-white text-2xl font-bold">
+          <img 
+          src="https://cdn.discordapp.com/attachments/1074270657426239488/1081824289273155614/hack-to-future-mini.png"
+          width="35%"
+          />
+        
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-1">
+        <a
+          href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+          >Sign in</a
+        >
+      </div>
+      <div class="md:hidden flex items-center">
+        <button
+          type="button"
+          class="text-gray-500 hover:text-white focus:outline-none focus:text-white"
+          aria-label="toggle menu"
+          id="mobile-menu-button"
+        >
+          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+            <path
+              fill-rule="evenodd"
+              d="M3 18.75h18v-1.5H3v1.5zm0-5.25h18v-1.5H3v1.5zm0-7.5v1.5h18v-1.5H3z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="md:hidden hidden" id="mobile-menu">
+    <div class="text-right"> <!-- Add this div with text-left class -->
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Sign in</a>
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Sign in</a>
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Sign in</a>
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Sign in</a>
+    </div>
+  </div>
+</nav>
+<script>
+  // Get the mobile menu button and mobile menu
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  // Add event listener to the mobile menu button
+  mobileMenuButton.addEventListener("click", () => {
+    // Toggle the aria-expanded attribute
+    mobileMenuButton.setAttribute(
+      "aria-expanded",
+      mobileMenu.classList.contains("hidden") ? "true" : "false"
+    );
+    // Toggle the hidden class on the mobile menu
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
