@@ -1,22 +1,22 @@
 <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
-  <h1 class="text-4xl font-bold mb-4"><%= team.name %></h1>
+  <h1 class="text-4xl font-bold mb-4 text-white"><%= team.name %></h1>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
-      <div class="bg-white rounded-md shadow-md px-4 py-4 mb-4">
-        <p class="text-gray-600">
+      <div class="bg-zinc-800 rounded-md shadow-md px-4 py-4 mb-4">
+        <p class="text-white">
           <span class="font-bold">ID:</span> <%= team.id %>
         </p>
-        <p class="text-gray-600">
+        <p class="text-white">
           <span class="font-bold">Theme:</span> <%= team.theme %>
         </p>
       </div>
-      <div class="bg-white rounded-md shadow-md px-4 py-4">
+      <div class="bg-zinc-800 rounded-md shadow-md px-4 py-4">
         <h2 class="text-lg font-bold mb-4">Members</h2>
         <% if (team.members.length > 0) { %> <% team.members.forEach(member => {
         %>
-        <p class="text-gray-600"><%= member.name %></p>
+        <p class="text-white"><%= member.name %></p>
         <% }) %> <% } else { %>
-        <p class="text-gray-600">No members found.</p>
+        <p class="text-white">No members found.</p>
         <% } %>
       </div>
     </div>
@@ -24,69 +24,65 @@
       <form
         action="/update"
         method="PUT"
-        class="bg-white rounded-md shadow-md px-4 py-4"
+        class="bg-zinc-800 rounded-md shadow-md px-4 py-4"
       >
-        <h2 class="text-lg font-bold mb-4">Score Dragger</h2>
-        <!-- add input fields for score dragger -->
+        <h2 class="text-lg font-bold mb-4 text-white">Enter Team Score</h2>
         <div class="mb-4">
-          <label for="score1">Score 1:</label>
+          <label for="score1" class="text-white">Score 1:</label>
           <input
-            type="range"
+            type="number"
             id="score1"
             name="score1"
             min="0"
             max="10"
-            value="5"
-            class="w-full"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
           />
-          <span class="score-display">5</span>
         </div>
         <div class="mb-4">
-          <label for="score2">Score 2:</label>
+          <label for="score2" class="text-white">Score 2:</label>
           <input
-            type="range"
+            type="number"
             id="score2"
             name="score2"
             min="0"
             max="10"
-            value="5"
-            class="w-full"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
           />
-          <span class="score-display">5</span>
         </div>
         <div class="mb-4">
-          <label for="score3">Score 3:</label>
+          <label for="score3" class="text-white">Score 3:</label>
           <input
-            type="range"
+            type="number"
             id="score3"
             name="score3"
             min="0"
             max="10"
-            value="5"
-            class="w-full"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
           />
-          <span class="score-display">5</span>
         </div>
         <div class="mb-4">
-          <label for="score4">Score 4:</label>
+          <label for="score4" class="text-white">Score 4:</label>
           <input
-            type="range"
+            type="number"
             id="score4"
             name="score4"
             min="0"
             max="10"
-            value="5"
-            class="w-full"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
           />
-          <span class="score-display">5</span>
         </div>
         <div class="mb-4">
-          <label for="notes">Notes:</label>
-          <textarea id="notes" name="notes" rows="8" class="w-full"></textarea>
+          <label for="notes" class="text-white">Notes:</label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="8"
+            class="w-full px-4 py-2 rounded-lg border text-white bg-zinc-800"
+          ></textarea>
         </div>
         <button
           type="submit"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue"
         >
           Submit
         </button>
@@ -94,17 +90,3 @@
     </div>
   </div>
 </div>
-<script>
-  const scoreInputs = document.querySelectorAll('input[type="range"]');
-  const scoreDisplays = document.querySelectorAll(".score-display");
-
-  scoreInputs.forEach((input, index) => {
-    const display = scoreDisplays[index];
-
-    display.innerText = input.value;
-
-    input.addEventListener("input", () => {
-      display.innerText = input.value;
-    });
-  });
-</script>
