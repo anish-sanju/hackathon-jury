@@ -4,11 +4,11 @@ const prisma = new PrismaClient();
 const router = Router();
 
 const teamidPrefixMap = new Map<string, string>([
-    ["Healthcare", "H"],
-    ["Finance", "F"],
-    ["Social Innovation", "S"],
-    ["Energy and Sustainability", "E"],
-  ]);
+  ["Healthcare", "H"],
+  ["Finance", "F"],
+  ["Social Innovation", "S"],
+  ["Energy and Sustainability", "E"],
+]);
 
 router.get("/", async (req, res) => {
   const teams = await prisma.team.findMany({
@@ -103,4 +103,61 @@ router.post("/create", async (req, res) => {
     res.status(500).send("Error creating team");
   }
 });
+
+router.post("/:id/update", async (req, res) => {
+  const { id } = req.params;
+  // Update the scores for the team
+  const { idea, technology, implementation, relevance, qa, notes } = req.body;
+
+  // Retrieve the current total
+  const team = await prisma.team.findUnique({
+    where: {
+      id: String(id),
+    },
+    select: {
+      result: {
+        select: {
+          total: true,
+        },
+      },
+    },
+  });
+
+  // Calculate the new total
+  const newTotal =
+    Number(idea) +
+    Number(technology) +
+    Number(implementation) +
+    Number(relevance) +
+    Number(qa) +
+    (team?.result?.total || 0); // Add the previous total if it exists
+
+  const updatedTeam = await prisma.team.update({
+    where: {
+      id: String(id),
+    },
+    data: {
+      result: {
+        update: {
+          idea: Number(idea),
+          technology: Number(technology),
+          implementation: Number(implementation),
+          relevance: Number(relevance),
+          qa: Number(qa),
+          notes,
+          total: newTotal,
+        },
+      },
+    },
+    select: {
+      id: true,
+      teamid: true,
+      name: true,
+      theme: true,
+      result: true,
+    },
+  });
+  res.json(updatedTeam);
+});
+
 export default router;

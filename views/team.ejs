@@ -22,10 +22,11 @@
     </div>
     <div>
       <form
-        action="/update"
-        method="PUT"
+        action="/teams/<%= team.id %>/update"
+        method="POST"
         class="bg-zinc-800 rounded-md shadow-md px-4 py-4"
       >
+        <input type="hidden" name="_method" value="PUT" />
         <h2 class="text-lg font-bold mb-4 text-white">Enter Team Score</h2>
         <div class="mb-4">
           <label for="idea" class="text-white">Idea (20):</label>
@@ -50,7 +51,9 @@
           />
         </div>
         <div class="mb-4">
-          <label for="implementation" class="text-white">Implementation (30):</label>
+          <label for="implementation" class="text-white"
+            >Implementation (30):</label
+          >
           <input
             type="number"
             id="implementation"
@@ -61,7 +64,9 @@
           />
         </div>
         <div class="mb-4">
-          <label for="relevance" class="text-white">Relevance to theme (10):</label>
+          <label for="relevance" class="text-white"
+            >Relevance to theme (10):</label
+          >
           <input
             type="number"
             id="relevance"
