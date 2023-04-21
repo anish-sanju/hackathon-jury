@@ -13,8 +13,8 @@ generator client {
 model Member {
   id     String  @id @default(auto()) @map("_id") @db.ObjectId
   name   String
-  team   Team?   @relation(fields: [teamId], references: [id])
-  teamId String? @db.ObjectId
+  team   Team   @relation(fields: [teamId], references: [id])
+  teamId String @db.ObjectId
 }
 
 model Team {
@@ -23,17 +23,18 @@ model Team {
   name    String
   theme   String
   members Member[]
-  Result  Result?
+  result  Result?
 }
 
 model Result {
   id     String  @id @default(auto()) @map("_id") @db.ObjectId
-  team   Team?   @relation(fields: [teamId], references: [id])
-  teamId String? @unique @db.ObjectId
-  slot1  Int
-  slot2  Int
-  slot3  Int
-  slot4  Int
+  team   Team   @relation(fields: [teamId], references: [id])
+  teamId String @unique @db.ObjectId
+  idea  Int
+  technology  Int
+  implementation  Int
+  relevance  Int
+  qa  Int
   total  Int
   notes  String?
 }
