@@ -1,15 +1,15 @@
-<div class="text-white flex justify-center items-center h-screen">
+<div class="text-white flex justify-center items-center">
   <div class="container mx-auto">
     <h1 class="text-3xl font-bold mb-8 text-center">Team List</h1>
     <% const themes = ['Energy and Sustainability', 'Social Innovation',
     'Finance', 'Healthcare']; %> <% themes.forEach(theme => { %>
-    <h2 class="text-xl font-bold mb-4"><%= theme %></h2>
+    <h2 class="text-xl font-bold my-4"><%= theme %></h2>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"
+      class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-8 gap-8 justify-center text-center"
     >
       <% teams.filter(team => team.theme === theme).forEach(team => { %>
       <div class="bg-zinc-800 rounded-lg shadow-lg p-4 md:p-8">
-        <h3 class="text-lg font-bold mb-2"><%= team.name %></h3>
+        <h3 class="text-lg font-bold mb-2"><%= team.teamid %></h3>
       </div>
       <% }); %>
     </div>

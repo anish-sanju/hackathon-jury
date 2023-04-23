@@ -1,20 +1,18 @@
 <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
-  <h1 class="text-4xl font-bold mb-4 text-white"><%= team.name %></h1>
+  <h1 class="text-4xl font-bold mb-4 text-center">
+    Team <%= team.name %> (<%= team.teamid %>)
+  </h1>
+  <h2 class="text-2xl font-semibold mb-4 text-center"><%= team.theme %></h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
-      <div class="bg-zinc-800 rounded-md shadow-md px-4 py-4 mb-4">
-        <p class="text-white">
-          <span class="font-bold">ID:</span> <%= team.id %>
-        </p>
-        <p class="text-white">
-          <span class="font-bold">Theme:</span> <%= team.theme %>
-        </p>
-      </div>
-      <div class="bg-zinc-800 rounded-md shadow-md px-4 py-4">
-        <h2 class="text-lg font-bold mb-4">Members</h2>
+      <div class="bg-zinc-800 rounded-md shadow-md px-4 py-4 pb-8">
+        <h2 class="text-lg font-bold mb-6">Members :</h2>
         <% if (team.members.length > 0) { %> <% team.members.forEach(member => {
         %>
-        <p class="text-white"><%= member.name %></p>
+        <span
+          class="text-white border rounded px-6 mr-2 my-2 py-2 bg-zinc-700 border-zinc-700"
+          ><%= member.name %></span
+        >
         <% }) %> <% } else { %>
         <p class="text-white">No members found.</p>
         <% } %>
@@ -27,31 +25,35 @@
         class="bg-zinc-800 rounded-md shadow-md px-4 py-4"
       >
         <input type="hidden" name="_method" value="PUT" />
-        <h2 class="text-lg font-bold mb-4 text-white">Enter Team Score</h2>
+        <h2 class="text-lg font-bold mb-4 text-white text-center">
+          Enter Team Score
+        </h2>
         <div class="mb-4">
-          <label for="idea" class="text-white">Idea (20):</label>
+          <label for="idea" class="text-white font-semibold">Idea (20):</label>
           <input
             type="number"
             id="idea"
             name="idea"
             min="0"
             max="20"
-            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-700 text-white bg-zinc-700"
           />
         </div>
         <div class="mb-4">
-          <label for="technology" class="text-white">Technology (20):</label>
+          <label for="technology" class="text-white font-semibold"
+            >Technology (20):</label
+          >
           <input
             type="number"
             id="technology"
             name="technology"
             min="0"
             max="20"
-            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-700 text-white bg-zinc-700"
           />
         </div>
         <div class="mb-4">
-          <label for="implementation" class="text-white"
+          <label for="implementation" class="text-white font-semibold"
             >Implementation (30):</label
           >
           <input
@@ -60,11 +62,11 @@
             name="implementation"
             min="0"
             max="30"
-            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-700 text-white bg-zinc-700"
           />
         </div>
         <div class="mb-4">
-          <label for="relevance" class="text-white"
+          <label for="relevance" class="text-white font-semibold"
             >Relevance to theme (10):</label
           >
           <input
@@ -73,28 +75,31 @@
             name="relevance"
             min="0"
             max="10"
-            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-700 text-white bg-zinc-700"
           />
         </div>
         <div class="mb-4">
-          <label for="qa" class="text-white">Q&A (20):</label>
+          <label for="qa" class="text-white font-semibold">Q&A (20):</label>
           <input
             type="number"
             id="qa"
             name="qa"
             min="0"
             max="20"
-            class="w-full px-4 py-2 rounded-lg border border-zinc-400 text-white bg-zinc-800"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-700 text-white bg-zinc-700"
           />
         </div>
         <div class="mb-4">
-          <label for="notes" class="text-white">Notes:</label>
+          <label for="notes" class="text-white font-semibold">Comments :</label>
           <textarea
             id="notes"
             name="notes"
             rows="8"
-            class="w-full px-4 py-2 rounded-lg border text-white bg-zinc-800"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-700 text-white bg-zinc-700"
           ></textarea>
+        </div>
+        <div class="mb-4 font-semibold">
+          <p id="total-score" class="text-white font-semibold">Total Score:</p>
         </div>
         <button
           type="submit"
@@ -106,3 +111,37 @@
     </div>
   </div>
 </div>
+<script>
+  // Get references to the input fields and the element where the total score will be displayed
+  const ideaInput = document.getElementById("idea");
+  const technologyInput = document.getElementById("technology");
+  const implementationInput = document.getElementById("implementation");
+  const relevanceInput = document.getElementById("relevance");
+  const qaInput = document.getElementById("qa");
+  const commentsInput = document.getElementById("notes");
+  const totalScoreElement = document.getElementById("total-score");
+
+  // Add an event listener to each input field to listen for changes
+  ideaInput.addEventListener("change", calculateTotalScore);
+  technologyInput.addEventListener("change", calculateTotalScore);
+  implementationInput.addEventListener("change", calculateTotalScore);
+  relevanceInput.addEventListener("change", calculateTotalScore);
+  qaInput.addEventListener("change", calculateTotalScore);
+  commentsInput.addEventListener("change", calculateTotalScore);
+
+  // Define a function to calculate the total score and update the element in the DOM
+  function calculateTotalScore() {
+    // Get the values of each input field
+    const idea = Number(ideaInput.value);
+    const technology = Number(technologyInput.value);
+    const implementation = Number(implementationInput.value);
+    const relevance = Number(relevanceInput.value);
+    const qa = Number(qaInput.value);
+
+    // Calculate the total score
+    const totalScore = idea + technology + implementation + relevance + qa;
+
+    // Update the element in the DOM
+    totalScoreElement.textContent = `Total Score: ${totalScore}`;
+  }
+</script>

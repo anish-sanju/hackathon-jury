@@ -1,12 +1,35 @@
-<h2 class="text-2xl font-bold text-white mb-4">
-  Teams with theme "<%= theme %>"
+<h2 class="text-2xl font-bold text-white my-4 text-center">
+  <%= theme %> Teams
 </h2>
 <% if (teams.length > 0) { %>
-<article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<article
+  class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center text-center"
+>
   <% teams.forEach(team => { %>
   <div class="bg-zinc-800 text-white rounded-md shadow-md py-4 px-6">
-    <a href="/teams/<%= team.id %>">
-      <h3 class="text-xl font-bold mb-2"><%= team.name %></h3>
+    <a href="/teams/<%= team.id %>" <% if (team.marks.length === 3) { %>class="disabled-link"<% } %>>
+      <h3 class="text-xl font-bold mb-2"><%= team.teamId %></h3>
+      <div class="grid grid-cols-3 gap-4">
+        <% const scores = ['idea', 'technology', 'implementation', 'relevance', 'qa']; %>
+        <% let totalScore = 0; %>
+        <% scores.forEach(score => { %>
+          <% const judgeScore = team.marks[0][score] + team.marks[1][score] + team.marks[2][score]; %>
+          <div class="bg-gray-900 text-gray-300 rounded-md shadow-md py-2 px-4">
+            <p class="font-semibold text-sm mb-1"><%= score.toUpperCase() %></p>
+            <p class="text-2xl"><%= judgeScore %></p>
+          </div>
+          <% totalScore += judgeScore; %>
+        <% }) %>
+        <% const averageScore = totalScore / (scores.length * 3); %>
+        <div class="bg-gray-900 text-gray-300 rounded-md shadow-md py-2 px-4 col-span-3">
+          <p class="font-semibold text-sm mb-1">TOTAL SCORE</p>
+          <p class="text-2xl"><%= totalScore %></p>
+        </div>
+        <div class="bg-gray-900 text-gray-300 rounded-md shadow-md py-2 px-4 col-span-3">
+          <p class="font-semibold text-sm mb-1">AVERAGE SCORE</p>
+          <p class="text-2xl"><%= averageScore.toFixed(2) %></p>
+        </div>
+      </div>
     </a>
   </div>
   <% }) %>
@@ -16,3 +39,10 @@
   No teams found with theme "<%= theme %>".
 </p>
 <% } %>
+<style>
+  .disabled-link {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: red;
+  }
+</style>

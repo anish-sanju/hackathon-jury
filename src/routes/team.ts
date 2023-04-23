@@ -43,6 +43,7 @@ router.get("/theme/:theme", async (req, res) => {
     },
     include: {
       members: true,
+      marks: true
     },
   });
   res.render("theme", { theme, teams });
@@ -108,21 +109,20 @@ router.post("/:id/update", async (req, res) => {
   const { id } = req.params;
   // Update the scores for the team
   const { idea, technology, implementation, relevance, qa, notes } = req.body;
-
-  // Retrieve the current total
+  // Retrieve the current total and marks
   const team = await prisma.team.findUnique({
     where: {
       id: String(id),
     },
     select: {
-      result: {
-        select: {
-          total: true,
-        },
-      },
+      id: true,
+      teamid: true,
+      name: true,
+      theme: true,
+      members: true,
+      marks: true,
     },
   });
-
   // Calculate the new total
   const newTotal =
     Number(idea) +
@@ -130,34 +130,40 @@ router.post("/:id/update", async (req, res) => {
     Number(implementation) +
     Number(relevance) +
     Number(qa) +
-    (team?.result?.total || 0); // Add the previous total if it exists
+    (team?.marks?.reduce((total, mark) => total + mark.idea + mark.technology + mark.implementation + mark.relevance + mark.qa, 0) || 0); // Add the previous total if it exists
 
-  const updatedTeam = await prisma.team.update({
-    where: {
-      id: String(id),
-    },
-    data: {
-      result: {
-        update: {
-          idea: Number(idea),
-          technology: Number(technology),
-          implementation: Number(implementation),
-          relevance: Number(relevance),
-          qa: Number(qa),
-          notes,
-          total: newTotal,
-        },
+  let updatedTeam;
+  if (team) {
+    updatedTeam = await prisma.team.update({
+      where: {
+        id: String(id),
       },
-    },
-    select: {
-      id: true,
-      teamid: true,
-      name: true,
-      theme: true,
-      result: true,
-    },
-  });
-  res.json(updatedTeam);
+      data: {
+        marks: {
+          create: {
+            idea: Number(idea),
+            technology: Number(technology),
+            implementation: Number(implementation),
+            relevance: Number(relevance),
+            qa: Number(qa),
+            total: Number(idea) + Number(technology) + Number(implementation) + Number(relevance) + Number(qa),
+            notes,
+          },
+        },
+        total: newTotal,
+      },
+      select: {
+        id: true,
+        teamid: true,
+        name: true,
+        theme: true,
+        members: true,
+        marks: true,
+        total: true
+      },
+    });
+  }
+  res.redirect('/teams/theme/' + team?.theme);
 });
 
 export default router;
