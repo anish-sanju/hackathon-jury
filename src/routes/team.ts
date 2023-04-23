@@ -43,7 +43,7 @@ router.get("/theme/:theme", async (req, res) => {
     },
     include: {
       members: true,
-      marks: true
+      marks: true,
     },
   });
   res.render("theme", { theme, teams });
@@ -130,7 +130,16 @@ router.post("/:id/update", async (req, res) => {
     Number(implementation) +
     Number(relevance) +
     Number(qa) +
-    (team?.marks?.reduce((total, mark) => total + mark.idea + mark.technology + mark.implementation + mark.relevance + mark.qa, 0) || 0); // Add the previous total if it exists
+    (team?.marks?.reduce(
+      (total, mark) =>
+        total +
+        mark.idea +
+        mark.technology +
+        mark.implementation +
+        mark.relevance +
+        mark.qa,
+      0
+    ) || 0); // Add the previous total if it exists
 
   let updatedTeam;
   if (team) {
@@ -146,11 +155,17 @@ router.post("/:id/update", async (req, res) => {
             implementation: Number(implementation),
             relevance: Number(relevance),
             qa: Number(qa),
-            total: Number(idea) + Number(technology) + Number(implementation) + Number(relevance) + Number(qa),
+            total:
+              Number(idea) +
+              Number(technology) +
+              Number(implementation) +
+              Number(relevance) +
+              Number(qa),
             notes,
           },
         },
         total: newTotal,
+        average: newTotal / 3,
       },
       select: {
         id: true,
@@ -159,11 +174,25 @@ router.post("/:id/update", async (req, res) => {
         theme: true,
         members: true,
         marks: true,
-        total: true
+        total: true,
       },
     });
   }
-  res.redirect('/teams/theme/' + team?.theme);
+  res.redirect("/teams/theme/" + team?.theme);
+});
+
+router.get("/:id/report", async (req, res) => {
+  const { id } = req.params;
+  const team = await prisma.team.findUnique({
+    where: {
+      id: String(id),
+    },
+    include: {
+      members: true,
+      marks: true,
+    },
+  });
+  res.render("report", { team });
 });
 
 export default router;

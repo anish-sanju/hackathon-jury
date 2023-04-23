@@ -2,47 +2,46 @@
   <%= theme %> Teams
 </h2>
 <% if (teams.length > 0) { %>
-<article
-  class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center text-center"
->
-  <% teams.forEach(team => { %>
-  <div class="bg-zinc-800 text-white rounded-md shadow-md py-4 px-6">
-    <a href="/teams/<%= team.id %>" <% if (team.marks.length === 3) { %>class="disabled-link"<% } %>>
-      <h3 class="text-xl font-bold mb-2"><%= team.teamId %></h3>
-      <div class="grid grid-cols-3 gap-4">
-        <% const scores = ['idea', 'technology', 'implementation', 'relevance', 'qa']; %>
-        <% let totalScore = 0; %>
-        <% scores.forEach(score => { %>
-          <% const judgeScore = team.marks[0][score] + team.marks[1][score] + team.marks[2][score]; %>
-          <div class="bg-gray-900 text-gray-300 rounded-md shadow-md py-2 px-4">
-            <p class="font-semibold text-sm mb-1"><%= score.toUpperCase() %></p>
-            <p class="text-2xl"><%= judgeScore %></p>
+  <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center text-center">
+    <% teams.forEach(team => { %>
+      <div class="bg-zinc-800 text-white rounded-md shadow-md py-4 px-6">
+        <a href="/teams/<%= team.id %>" <% if (team.marks.length >= 3) { %>class="disabled-link"<% } %>>
+          <h3 class="text-xl font-bold mb-2" <% if (team.marks.length === 1) { %>style="color:green;"<% } else if (team.marks.length === 2) { %>style="color:yellow;"<% } else if (team.marks.length >= 3) { %>style="color:red;"<% } %>><%= team.teamid %></h3>
+          <div class="flex justify-between mt-4">
+            <div>
+              <p class="font-bold">Judge Scores:</p>
+              <p> Judge 1: <%= team?.marks[0]?.total ?? 0 %></p>
+              <p> Judge 2: <%= team?.marks[1]?.total ?? 0 %></p>
+              <p> Judge 3: <%= team?.marks[2]?.total ?? 0 %></p>
+            </div>
+            <div>
+              <p class="font-bold">Total Score:</p>
+              <p><%= team?.total ?? 0 %></p>
+            </div>
+            <div>
+              <p class="font-bold">Average Score:</p>
+              <p><%= team?.average?.toFixed(2) ?? 0 %></p>
+            </div>
           </div>
-          <% totalScore += judgeScore; %>
-        <% }) %>
-        <% const averageScore = totalScore / (scores.length * 3); %>
-        <div class="bg-gray-900 text-gray-300 rounded-md shadow-md py-2 px-4 col-span-3">
-          <p class="font-semibold text-sm mb-1">TOTAL SCORE</p>
-          <p class="text-2xl"><%= totalScore %></p>
-        </div>
-        <div class="bg-gray-900 text-gray-300 rounded-md shadow-md py-2 px-4 col-span-3">
-          <p class="font-semibold text-sm mb-1">AVERAGE SCORE</p>
-          <p class="text-2xl"><%= averageScore.toFixed(2) %></p>
-        </div>
+        </a>
       </div>
-    </a>
-  </div>
-  <% }) %>
-</article>
+    <% }) %>
+  </article>
 <% } else { %>
-<p class="text-gray-600 text-center mt-4">
-  No teams found with theme "<%= theme %>".
-</p>
+  <p class="text-gray-600 text-center mt-4">
+    No teams found with theme "<%= theme %>".
+  </p>
 <% } %>
 <style>
   .disabled-link {
     cursor: not-allowed;
     pointer-events: none;
-    color: red;
+  }
+  .download-report-button {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+  .lg\:w-1\/3 {
+    width: calc(33.33% - 1rem);
   }
 </style>
