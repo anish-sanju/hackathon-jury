@@ -19,6 +19,7 @@ model Team {
   teamid  String   @unique
   name    String
   theme   String
+  college String
   members Member[]
   marks   Marks[]
   total   Int?

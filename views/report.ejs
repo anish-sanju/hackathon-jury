@@ -1,0 +1,21 @@
+<table class="w-full">
+    <thead>
+      <tr>
+        <th class="border border-gray-500 px-4 py-2">#</th>
+        <th class="border border-gray-500 px-4 py-2">Team Name</th>
+        <th class="border border-gray-500 px-4 py-2">Team ID</th>
+        <th class="border border-gray-500 px-4 py-2">Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% teams.forEach((team, index) => { %>
+        <tr>
+          <td class="border border-gray-500 px-4 py-2"><%= index + 1 %></td>
+
+          <td class="border border-gray-500 px-4 py-2"><%= team.name %></td>
+          <td class="border border-gray-500 px-4 py-2"><%= team.teamid %></td>
+          <td class="border border-gray-500 px-4 py-2"><%= team.members.map(member => member.name).join(", ") %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>

@@ -1,5 +1,8 @@
 import { Router } from "express";
 import { PrismaClient } from "@prisma/client";
+import pdf from "html-pdf";
+import ejs from "ejs";
+import path from "path";
 const prisma = new PrismaClient();
 const router = Router();
 
@@ -44,7 +47,7 @@ router.get("/theme/:theme", async (req, res) => {
 
 // Create a new team
 router.post("/create", async (req, res) => {
-  const { name, teamid, member1, member2, member3, theme } = req.body;
+  const { name, teamid, college, member1, member2, member3, theme } = req.body;
   // Validate the team data
   if (!name || !member1 || !theme) {
     res.status(400).send("Missing required fields");
@@ -63,8 +66,9 @@ router.post("/create", async (req, res) => {
     const team = await prisma.team.create({
       data: {
         name,
-        teamid: teamid,
+        teamid,
         theme,
+        college,
         members: {
           create: memberList.map((name) => ({ name })),
         },
@@ -169,6 +173,63 @@ router.get("/:id/report", async (req, res) => {
     },
   });
   res.render("report", { team });
+});
+
+router.get("/:theme/report.pdf", async (req, res) => {
+  const { theme } = req.params;
+
+  const teams = await prisma.team.findMany({
+    where: {
+      theme: {
+        equals: theme,
+        mode: "insensitive",
+      },
+    },
+    include: {
+      members: true,
+      marks: true,
+    },
+  });
+
+  const data = {
+    theme,
+    teams,
+  };
+  res.json(data);
+
+  // try {
+  //   ejs.renderFile(
+  //     path.join(__dirname, "../views/report.ejs"),
+  //     { data },
+  //     (err, html) => {
+  //       if (err) {
+  //         console.error(err);
+  //         res.status(500).send("Error generating report");
+  //         return;
+  //       }
+  //       pdf
+  //         .create(html, {
+  //           format: "Letter",
+  //         })
+  //         .toStream((err, stream) => {
+  //           if (err) {
+  //             console.error(err);
+  //             res.status(500).send("Error generating report");
+  //             return;
+  //           }
+  //           res.setHeader("Content-Type", "application/pdf");
+  //           res.setHeader(
+  //             "Content-Disposition",
+  //             `attachment; filename=${theme}-report.pdf`
+  //           );
+  //           stream.pipe(res);
+  //         });
+  //     }
+  //   );
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).send("Error generating report");
+  // }
 });
 
 export default router;
