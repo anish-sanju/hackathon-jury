@@ -3,13 +3,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 const router = Router();
 
-const teamidPrefixMap = new Map<string, string>([
-  ["Healthcare", "H"],
-  ["Finance", "F"],
-  ["Social Innovation", "S"],
-  ["Energy and Sustainability", "E"],
-]);
-
 router.get("/", async (req, res) => {
   const teams = await prisma.team.findMany({
     include: {
@@ -51,24 +44,7 @@ router.get("/theme/:theme", async (req, res) => {
 
 // Create a new team
 router.post("/create", async (req, res) => {
-  const { name, member1, member2, member3, theme } = req.body;
-  const teamidPrefix = teamidPrefixMap.get(theme);
-  // Find the previous teamid and increment it by 1 and use that as the new teamid
-  const previousTeam = await prisma.team.findFirst({
-    where: {
-      teamid: {
-        startsWith: teamidPrefix,
-      },
-    },
-    orderBy: {
-      teamid: "desc",
-    },
-  });
-
-  const previousTeamId = previousTeam?.teamid;
-  const previousTeamIdNumber = parseInt(previousTeamId?.substring(1)!) || 0;
-  const newTeamId = teamidPrefix! + (previousTeamIdNumber + 1);
-
+  const { name, teamid, member1, member2, member3, theme } = req.body;
   // Validate the team data
   if (!name || !member1 || !theme) {
     res.status(400).send("Missing required fields");
@@ -87,7 +63,7 @@ router.post("/create", async (req, res) => {
     const team = await prisma.team.create({
       data: {
         name,
-        teamid: newTeamId,
+        teamid: teamid,
         theme,
         members: {
           create: memberList.map((name) => ({ name })),

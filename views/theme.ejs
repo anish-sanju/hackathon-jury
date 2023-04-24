@@ -2,27 +2,11 @@
   <%= theme %> Teams
 </h2>
 <% if (teams.length > 0) { %>
-  <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center text-center">
+  <article class="grid grid-cols md:grid-cols-6 lg:grid-cols-8 gap-8 justify-center text-center">
     <% teams.forEach(team => { %>
       <div class="bg-zinc-800 text-white rounded-md shadow-md py-4 px-6">
         <a href="/teams/<%= team.id %>" <% if (team.marks.length >= 3) { %>class="disabled-link"<% } %>>
           <h3 class="text-xl font-bold mb-2" <% if (team.marks.length === 1) { %>style="color:green;"<% } else if (team.marks.length === 2) { %>style="color:yellow;"<% } else if (team.marks.length >= 3) { %>style="color:red;"<% } %>><%= team.teamid %></h3>
-          <div class="flex justify-between mt-4">
-            <div>
-              <p class="font-bold">Judge Scores:</p>
-              <p> Judge 1: <%= team?.marks[0]?.total ?? 0 %></p>
-              <p> Judge 2: <%= team?.marks[1]?.total ?? 0 %></p>
-              <p> Judge 3: <%= team?.marks[2]?.total ?? 0 %></p>
-            </div>
-            <div>
-              <p class="font-bold">Total Score:</p>
-              <p><%= team?.total ?? 0 %></p>
-            </div>
-            <div>
-              <p class="font-bold">Average Score:</p>
-              <p><%= team?.average?.toFixed(2) ?? 0 %></p>
-            </div>
-          </div>
         </a>
       </div>
     <% }) %>

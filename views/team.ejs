@@ -5,13 +5,13 @@
   <h2 class="text-2xl font-semibold mb-4 text-center"><%= team.theme %></h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
-      <div class="bg-zinc-800 rounded-md shadow-md px-4 py-4 pb-8">
+      <div class="bg-zinc-800 rounded-md shadow-md px-2 py-4 pb-8">
         <h2 class="text-lg font-bold mb-6">Members :</h2>
         <% if (team.members.length > 0) { %> <% team.members.forEach(member => {
         %>
         <span
-          class="text-white border rounded px-6 mr-2 my-2 py-2 bg-zinc-700 border-zinc-700"
-          ><%= member.name %></span
+          class="text-white border rounded px-8 mr-2 my-2 py-2 bg-zinc-700 border-zinc-700"
+          ><%= member.name.slice(0, 12) %>...</span
         >
         <% }) %> <% } else { %>
         <p class="text-white">No members found.</p>
