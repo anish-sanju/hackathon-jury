@@ -145,7 +145,7 @@ router.post("/:id/update", async (req, res) => {
           },
         },
         total: newTotal,
-        average: newTotal / 3,
+        average: newTotal / 2,
       },
       select: {
         id: true,
