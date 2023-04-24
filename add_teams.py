@@ -24,7 +24,8 @@ def main():
             'member1': team["Participants"][0],
             'member2': team["Participants"][1] if len(team["Participants"]) > 1 else None,
             'member3': team["Participants"][2] if len(team["Participants"]) > 2 else None,
-            'theme': team["Category"]
+            'theme': team["Category"],
+            'college': team["College Name"],
         }
 
         response = requests.post(url, data=data)
