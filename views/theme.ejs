@@ -5,8 +5,8 @@
   <article class="grid grid-cols md:grid-cols-6 lg:grid-cols-8 gap-8 justify-center text-center">
     <% teams.forEach(team => { %>
       <div class="bg-zinc-800 text-white rounded-md shadow-md py-4 px-6">
-        <a href="/teams/<%= team.id %>" <% if (team.marks.length >= 3) { %>class="disabled-link"<% } %>>
-          <h3 class="text-xl font-bold mb-2" <% if (team.marks.length === 1) { %>style="color:green;"<% } else if (team.marks.length === 2) { %>style="color:yellow;"<% } else if (team.marks.length >= 3) { %>style="color:red;"<% } %>><%= team.teamid %></h3>
+        <a href="/teams/<%= team.id %>" class="<% if (team.marks.length >= 2) { %>disabled-link <% } %>" <% if (team.marks.length === 1) { %>style="color:green;"<% } else if (team.marks.length >= 2) { %>style="color:red;"<% } %> >
+          <h3 class="text-xl font-bold mb-2"><%= team.teamid %></h3>
         </a>
       </div>
     <% }) %>
