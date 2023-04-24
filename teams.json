@@ -1,0 +1,577 @@
+{
+    "S01": {
+        "College Name": "Reva University (RU), Bangalore, Karnataka",
+        "Team Name": "TechFortune23",
+        "Team Leader": "Debarun Ghosh",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Debarun Ghosh",
+            "Ayan Kumar",
+            "Pooja Mallik"
+        ]
+    },
+    "S02": {
+        "College Name": "National Institute of Technology Karnataka (NITK), Surathkal",
+        "Team Name": "Dev-Int",
+        "Team Leader": "Mardav Gandhi",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Mardav Gandhi",
+            "Fahim Ahmed",
+            "Hriday Mehta"
+        ]
+    },
+    "S03": {
+        "College Name": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Shankarapura, Karnataka",
+        "Team Name": "Runtime Terrors",
+        "Team Leader": "Prathvi Rao",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Prathvi Rao",
+            "Arathi Kini",
+            "Aaron Sharon"
+        ]
+    },
+    "S04": {
+        "College Name": "Kristu Jayanthi college bangalore",
+        "Team Name": "The Coding Collective",
+        "Team Leader": "Samuel Shine",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Samuel Shine",
+            "Shruti Das",
+            "Aadar Shrestha"
+        ]
+    },
+    "S05": {
+        "College Name": "GM Institute of Technology (GMIT), Davangere, karnataka",
+        "Team Name": "RED",
+        "Team Leader": "Shravan Hajare",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Shravan Hajare",
+            "Vanamali Sedimbi",
+            "Shivashankar M N"
+        ]
+    },
+    "S06": {
+        "College Name": "GM Institute of Technology (GMIT), Davangere, karnataka",
+        "Team Name": "Voltage Vikings",
+        "Team Leader": "Sagar Patil",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Sagar Patil",
+            "Varun S",
+            "Tushar B R"
+        ]
+    },
+    "S07": {
+        "College Name": "St. Joseph Engineering College, Vamanjoor",
+        "Team Name": "Bytenamics",
+        "Team Leader": "Jessica James Fernandes",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Jessica James Fernandes",
+            "Anish Shobith P S",
+            "Abhinav Sudesh"
+        ]
+    },
+    "S08": {
+        "College Name": "St. Joseph Engineering College, Vamanjoor",
+        "Team Name": "Innovative thinkers",
+        "Team Leader": "Dominic Peter",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Dominic Peter",
+            "Jeevan K",
+            "Hemachandra"
+        ]
+    },
+    "S09": {
+        "College Name": "St. Joseph Engineering College, Vamanjoor",
+        "Team Name": "Necta",
+        "Team Leader": "Reevan Coelho",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Reevan Coelho",
+            "Mohammed Rabil",
+            "Vineeth Shenoy"
+        ]
+    },
+    "S10": {
+        "College Name": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Shankarapura, Karnataka",
+        "Team Name": "Bit by Bit",
+        "Team Leader": "Vijayakumara Biradar",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Vijayakumara Biradar",
+            "Pradwin Sherigar",
+            "Rathan R Nayak"
+        ]
+    },
+    "S11": {
+        "College Name": "Manipal Institute of Technology (MIT), Manipal",
+        "Team Name": "Lumos",
+        "Team Leader": "Harry Raj",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Harry Raj",
+            "Tanishq Singh",
+            "Triya Roy"
+        ]
+    },
+    "S12": {
+        "College Name": "St. Joseph Engineering College, Mangalore, Karnataka",
+        "Team Name": "The Byte Brigade",
+        "Team Leader": "Vaishnavi Bharadwaj",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Vaishnavi Bharadwaj",
+            "A Sanjana B Bhat",
+            "Anujna K"
+        ]
+    },
+    "S13": {
+        "College Name": "St. Joseph Engineering College, Mangalore, Karnataka",
+        "Team Name": "Syntax Error",
+        "Team Leader": "Charishma Shivani",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Charishma Shivani",
+            "Chaithanya K",
+            "Ashburn Simon  Noronha"
+        ]
+    },
+    "S14": {
+        "College Name": "Sahyadri College of Engineering & Management (SCEM), Mangaluru",
+        "Team Name": "Sushrutha",
+        "Team Leader": "Bhat Nishanth Ganesh",
+        "Category": "Social Innovation",
+        "Participants": [
+            "Bhat Nishanth Ganesh",
+            "Maroon Chethan Pai",
+            "Anudeep K K"
+        ]
+    },
+    "H01": {
+        "College Name": "St Joseph Engineering College",
+        "Team Name": "SHERLOCKES",
+        "Team Leader": "Vijay A S",
+        "Category": "Healthcare",
+        "Participants": [
+            "Vijay A S",
+            "Brian Menenzes",
+            "Bhavish J"
+        ]
+    },
+    "H02": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "PPA",
+        "Team Leader": "Pravin Kumar",
+        "Category": "Healthcare",
+        "Participants": [
+            "Pravin Kumar",
+            "Pragnya Nagure",
+            "Avinash Muralidharan"
+        ]
+    },
+    "H03": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "The Crusaders",
+        "Team Leader": "Joyal Menezes",
+        "Category": "Healthcare",
+        "Participants": [
+            "Joyal Menezes"
+        ]
+    },
+    "H04": {
+        "College Name": "NMAM Institute of Technology (NMAMIT), Nitte",
+        "Team Name": "Team kryptonite",
+        "Team Leader": "Navaneeth Kulal",
+        "Category": "Healthcare",
+        "Participants": [
+            "Navaneeth Kulal",
+            "Dayanidhi R"
+        ]
+    },
+    "H05": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Synergy",
+        "Team Leader": "Tina Benita Rego",
+        "Category": "Healthcare",
+        "Participants": [
+            "Tina Benita Rego",
+            "Sharanya S Shetty",
+            "Vanesha Relitsa Cutinho"
+        ]
+    },
+    "H06": {
+        "College Name": "Mangalore Institute of Technology & Engineering (MITE), Mangaluru, Karnataka",
+        "Team Name": "Code Red",
+        "Team Leader": "Varun Raj",
+        "Category": "Healthcare",
+        "Participants": [
+            "Varun Raj",
+            "Mahesh Narasimha",
+            "Hithesh Suvarna"
+        ]
+    },
+    "H07": {
+        "College Name": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Shankarapura, Karnataka",
+        "Team Name": "Sweet pills",
+        "Team Leader": "Chandana B",
+        "Category": "Healthcare",
+        "Participants": [
+            "Chandana B",
+            "Shrutha Bhat",
+            "Shridhar S"
+        ]
+    },
+    "H08": {
+        "College Name": "Alva's Institute of Engineering and Technology, Karnataka",
+        "Team Name": "Bro code",
+        "Team Leader": "Shwetha R Sharma",
+        "Category": "Healthcare",
+        "Participants": [
+            "Shwetha R Sharma",
+            "B Sai Shreya",
+            "Sahana G S"
+        ]
+    },
+    "H09": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "630601-U0V54DO1",
+        "Team Leader": "Jeevan Kumar",
+        "Category": "Healthcare",
+        "Participants": [
+            "Jeevan Kumar",
+            "Souraj Rai",
+            "Rahul J"
+        ]
+    },
+    "H10": {
+        "College Name": "Bearys institute of technology",
+        "Team Name": "Tech Pirate",
+        "Team Leader": "Mohammed Ajmal Husainnaikar",
+        "Category": "Healthcare",
+        "Participants": [
+            "Mohammed Ajmal Husainnaikar",
+            "Arfaz Ahmed"
+        ]
+    },
+    "H11": {
+        "College Name": "St Joseph Engineering College",
+        "Team Name": "Tesseract",
+        "Team Leader": "Adith K V",
+        "Category": "Healthcare",
+        "Participants": [
+            "Adith K V",
+            "Samrudh A U",
+            "D Sathvik Pai"
+        ]
+    },
+    "H12": {
+        "College Name": "St.aloysius college,mangalore",
+        "Team Name": "MedVault",
+        "Team Leader": "Nathan Sequeira",
+        "Category": "Healthcare",
+        "Participants": [
+            "Nathan Sequeira",
+            "Biru Hirkur",
+            "Justin Mathias"
+        ]
+    },
+    "H13": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "NEON",
+        "Team Leader": "Tanisha Shetty",
+        "Category": "Healthcare",
+        "Participants": [
+            "Tanisha Shetty",
+            "Rachan Karkera",
+            "Nihaal YK"
+        ]
+    },
+    "H14": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "falcons",
+        "Team Leader": "Rinette Veronica",
+        "Category": "Healthcare",
+        "Participants": [
+            "Rinette Veronica",
+            "Rencita Monteiro",
+            "Riya D Almeida"
+        ]
+    },
+    "H15": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Hack Attack",
+        "Team Leader": "Sharon Menezes",
+        "Category": "Healthcare",
+        "Participants": [
+            "Sharon Menezes",
+            "Shane Priyanka",
+            "Chaitanya"
+        ]
+    },
+    "F01": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Shawarma",
+        "Team Leader": "Muhammad Saheed",
+        "Category": "Finance",
+        "Participants": [
+            "Muhammad Saheed",
+            "Shelton Agera"
+        ]
+    },
+    "F02": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Ham",
+        "Team Leader": "Abraham",
+        "Category": "Finance",
+        "Participants": [
+            "Abraham",
+            "Shane Noronha",
+            "Avin Francis"
+        ]
+    },
+    "F03": {
+        "College Name": "St Joseph Engineering College",
+        "Team Name": "PrintChange",
+        "Team Leader": "Shaun Furtado",
+        "Category": "Finance",
+        "Participants": [
+            "Shaun Furtado",
+            "Shawn Monteiro"
+        ]
+    },
+    "F04": {
+        "College Name": "NMAM Institute of Technology (NMAMIT), Nitte",
+        "Team Name": "t3-tribe",
+        "Team Leader": "Nagaraj Pandith",
+        "Category": "Finance",
+        "Participants": [
+            "Nagaraj Pandith",
+            "Swasthik Shetty"
+        ]
+    },
+    "F05": {
+        "College Name": "St Joseph Engineering College",
+        "Team Name": "Xtension",
+        "Team Leader": "Rayan Dsilva",
+        "Category": "Finance",
+        "Participants": [
+            "Rayan Dsilva",
+            "Ovin D Almeida",
+            "Glenn Aston"
+        ]
+    },
+    "F06": {
+        "College Name": "Sri Krishna College of Engineering and Technology (SKCET), Coimbatore",
+        "Team Name": "Debug Entity",
+        "Team Leader": "Vel Yogesh",
+        "Category": "Finance",
+        "Participants": [
+            "Vel Yogesh",
+            "Bhuvaneshwari R",
+            "Sumalini G V"
+        ]
+    },
+    "F07": {
+        "College Name": "Alvas Institute of Engineering and Technology, Mangalore, Karnataka",
+        "Team Name": "GOATS",
+        "Team Leader": "Koushik K",
+        "Category": "Finance",
+        "Participants": [
+            "Koushik K",
+            "Hardik Prabhu",
+            "Thejas Devadiga"
+        ]
+    },
+    "F08": {
+        "College Name": "P A College of Engineering (PACOE), Mangalore",
+        "Team Name": "PACEMAKERS",
+        "Team Leader": "Mohammed Nouman",
+        "Category": "Finance",
+        "Participants": [
+            "Mohammed Nouman",
+            "Sheik Rifaz",
+            "Rabeeh T A"
+        ]
+    },
+    "F09": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Straw hats",
+        "Team Leader": "Vaibhav Salian",
+        "Category": "Finance",
+        "Participants": [
+            "Vaibhav Salian",
+            "Ashley Dsouza",
+            "Mohammad Shaheer"
+        ]
+    },
+    "F10": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "SCEPTIX",
+        "Team Leader": "Vyasa M Nayak",
+        "Category": "Finance",
+        "Participants": [
+            "Vyasa M Nayak",
+            "Devananda M",
+            "Alriya Treeza D Souza"
+        ]
+    },
+    "E01": {
+        "College Name": "St. Joseph Engineering College, Mangalore, Karnataka",
+        "Team Name": "Jinsei",
+        "Team Leader": "Samwin Steve Pereira",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Samwin Steve Pereira",
+            "Charis Pinto",
+            "Joywin Bennis"
+        ]
+    },
+    "E02": {
+        "College Name": "GM Institute of Technology (GMIT), Davangere",
+        "Team Name": "Carpool CREW",
+        "Team Leader": "Pranav V",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Pranav V",
+            "Pooja H P",
+            "Navaprettam N"
+        ]
+    },
+    "E03": {
+        "College Name": "Srinivas University (SU), Mangaluru",
+        "Team Name": "GOLDEN-DAWN",
+        "Team Leader": "Amogh Rao",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Amogh Rao",
+            "B P Shashank",
+            "Tejas Pujari"
+        ]
+    },
+    "E04": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "The Tech Tribe",
+        "Team Leader": "Aditya Shriyan",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Aditya Shriyan",
+            "Sara Abdul",
+            "Sanmitha Shetty"
+        ]
+    },
+    "E05": {
+        "College Name": "St. Joseph Engineering College, Mangalore, Karnataka",
+        "Team Name": "Soul Celestia",
+        "Team Leader": "Ralweena Rishal Lobo",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Ralweena Rishal Lobo",
+            "Joyline Rencita",
+            "Melanie Crystal Miranda"
+        ]
+    },
+    "E06": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "wavy",
+        "Team Leader": "Adwaith Sajeev C",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Adwaith Sajeev C",
+            "Abhinav C Yadav",
+            "Ciana Rodrigues"
+        ]
+    },
+    "E07": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Team Cypher",
+        "Team Leader": "Uthpal Suvarna",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Uthpal Suvarna",
+            "Mohammad  Afeef",
+            "Thejas B Shetty"
+        ]
+    },
+    "E08": {
+        "College Name": "St. Joseph Engineering College, Vamanjoor",
+        "Team Name": "Data Pirates",
+        "Team Leader": "Maria Viola",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Maria Viola",
+            "Navyashree Salyan"
+        ]
+    },
+    "E09": {
+        "College Name": "St. Joseph Engineering College, Mangalore, Karnataka",
+        "Team Name": "Team 404",
+        "Team Leader": "Bharath K",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Bharath K",
+            "Dhruva",
+            "Ayush Maheshwari"
+        ]
+    },
+    "E10": {
+        "College Name": "St. Joseph Engineering College, Vamanjoor",
+        "Team Name": "Peppermint plasters",
+        "Team Leader": "Lawrence Dsouza",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Lawrence Dsouza",
+            "Deric Jojo",
+            "Joshua Quinthino Albuquerque"
+        ]
+    },
+    "E11": {
+        "College Name": "Sri Eshwar College of Engineering (SECE), Tamil Nadu",
+        "Team Name": "Coding Puyal",
+        "Team Leader": "Nithinn Manickam",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Nithinn Manickam",
+            "Naveen",
+            "Madhu Mohan"
+        ]
+    },
+    "E12": {
+        "College Name": "Kristu Jayanti College (KJC), Bangalore",
+        "Team Name": "Infinity coders",
+        "Team Leader": "Hithesh B",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Hithesh B",
+            "Prajwal kumar",
+            "Raghav S"
+        ]
+    },
+    "E13": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Fledge",
+        "Team Leader": "Vikhyath DK",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Vikhyath DK",
+            "Siya Viju",
+            "Vaishnav\u00a0N"
+        ]
+    },
+    "E14": {
+        "College Name": "St Joseph Engineering College (SJEC), Mangaluru",
+        "Team Name": "Team-Alpha",
+        "Team Leader": "Swathi Rai",
+        "Category": "Energy and Sustainability",
+        "Participants": [
+            "Swathi Rai",
+            "Sonal Monis",
+            "Vinod Nikhil Monteiro"
+        ]
+    }
+}
