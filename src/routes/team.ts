@@ -161,21 +161,8 @@ router.post("/:id/update", async (req, res) => {
   res.redirect("/teams/theme/" + team?.theme);
 });
 
-router.get("/:id/report", async (req, res) => {
-  const { id } = req.params;
-  const team = await prisma.team.findUnique({
-    where: {
-      id: String(id),
-    },
-    include: {
-      members: true,
-      marks: true,
-    },
-  });
-  res.render("report", { team });
-});
 
-router.get("/:theme/report.pdf", async (req, res) => {
+router.get("/:theme/report", async (req, res) => {
   const { theme } = req.params;
 
   const teams = await prisma.team.findMany({
@@ -189,47 +176,16 @@ router.get("/:theme/report.pdf", async (req, res) => {
       members: true,
       marks: true,
     },
+    orderBy: {
+      average: "desc"
+    }
   });
 
   const data = {
     theme,
     teams,
   };
-  res.json(data);
-
-  // try {
-  //   ejs.renderFile(
-  //     path.join(__dirname, "../views/report.ejs"),
-  //     { data },
-  //     (err, html) => {
-  //       if (err) {
-  //         console.error(err);
-  //         res.status(500).send("Error generating report");
-  //         return;
-  //       }
-  //       pdf
-  //         .create(html, {
-  //           format: "Letter",
-  //         })
-  //         .toStream((err, stream) => {
-  //           if (err) {
-  //             console.error(err);
-  //             res.status(500).send("Error generating report");
-  //             return;
-  //           }
-  //           res.setHeader("Content-Type", "application/pdf");
-  //           res.setHeader(
-  //             "Content-Disposition",
-  //             `attachment; filename=${theme}-report.pdf`
-  //           );
-  //           stream.pipe(res);
-  //         });
-  //     }
-  //   );
-  // } catch (error) {
-  //   console.error(error);
-  //   res.status(500).send("Error generating report");
-  // }
+  res.render("report", { data });
 });
 
 export default router;

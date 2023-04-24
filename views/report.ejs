@@ -1,21 +1,75 @@
-<table class="w-full">
+<div class="no-print flex flex-row items-center mb-4">
+  <h1 class="text-3xl font-bold mb-4 text-center"><%= data.theme %> Report</h1>
+  <div class="ml-auto">
+    <button
+      class="px-4 py-2 bg-zinc-700 text-white rounded-md hover:bg-zinc-600 focus:outline-none"
+      onclick="window.print()"
+    >
+      Download
+    </button>
+  </div>
+</div>
+
+<div class="overflow-x-auto">
+  <table class="table-auto min-w-full border-collapse">
     <thead>
       <tr>
-        <th class="border border-gray-500 px-4 py-2">#</th>
-        <th class="border border-gray-500 px-4 py-2">Team Name</th>
-        <th class="border border-gray-500 px-4 py-2">Team ID</th>
-        <th class="border border-gray-500 px-4 py-2">Members</th>
+        <th class="px-4 py-2">Rank</th>
+        <th class="px-4 py-2">Team Name</th>
+        <th class="px-4 py-2">Team ID</th>
+        <th class="px-4 py-2">College</th>
+        <th class="px-4 py-2">Total</th>
+        <th class="px-4 py-2">Average</th>
+        <th class="px-4 py-2">Members</th>
       </tr>
     </thead>
     <tbody>
-      <% teams.forEach((team, index) => { %>
-        <tr>
-          <td class="border border-gray-500 px-4 py-2"><%= index + 1 %></td>
-
-          <td class="border border-gray-500 px-4 py-2"><%= team.name %></td>
-          <td class="border border-gray-500 px-4 py-2"><%= team.teamid %></td>
-          <td class="border border-gray-500 px-4 py-2"><%= team.members.map(member => member.name).join(", ") %></td>
-        </tr>
+      <% data.teams.forEach((team, index) => { %>
+      <tr>
+        <td class="border px-4 py-2"><%= index + 1 %></td>
+        <td class="border px-4 py-2"><%= team.name %></td>
+        <td class="border px-4 py-2"><%= team.teamid %></td>
+        <td class="border px-4 py-2"><%= team.college %></td>
+        <td class="border px-4 py-2"><%= team.total ?? 0%></td>
+        <td class="border px-4 py-2"><%= team.average?.toFixed(3) ?? 0 %></td>
+        <td class="border px-4 py-2">
+          <ul>
+            <% team.members.forEach(member => { %>
+            <li><%= member.name %></li>
+            <% }) %>
+          </ul>
+        </td>
+      </tr>
       <% }) %>
     </tbody>
   </table>
+</div>
+
+<style>
+  @media (max-width: 640px) {
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    th,
+    td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 1rem;
+    }
+
+    th:last-child,
+    td:last-child {
+      padding-right: 1rem;
+    }
+  }
+</style>
